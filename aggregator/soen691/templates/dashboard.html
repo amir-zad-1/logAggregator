@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+            <tr>
+                <th>DateTime</th>
+                <th>Remote_Addr</th>
+                <th>Req</th>
+                <th>Status</th>
+                <th>ReqTime</th>
+                <th>UserAgent</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for l in logs %}
+                <tr>
+                    <td>{{ l.time_local }}</td>
+                    <td>{{ l.remote_addr }}</td>
+                    <td>{{ l.request }}</td>
+                    <td>{{ l.status }}</td>
+                    <td>{{ l.req_time }}</td>
+                    <td>{{ l.http_user_agent }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
